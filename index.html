@@ -160,13 +160,6 @@ img{display:block}
 .wy b{font:600 18px/24px var(--fd)}.wy span{color:var(--ink2)}
 .wy__i{border-radius:20px;overflow:hidden;position:relative;min-height:260px}
 .wy__i img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.rw{display:grid;gap:16px;align-content:space-between;padding:24px;border-radius:20px;background:var(--paper);border:1px solid var(--line)}
-.rw .ic{width:32px;height:32px;color:var(--at)}
-.rw p{font-size:16px;line-height:26px}
-.rw footer{display:flex;gap:12px;align-items:center;border-top:1px solid var(--line);padding-top:16px}
-.rw footer i{width:40px;height:40px;border-radius:50%;background:var(--tn);color:var(--at);display:grid;place-items:center;font:600 15px var(--fd);font-style:normal}
-.rw footer b{display:block;font-weight:600;font-size:14px;line-height:20px}.rw footer span{font-size:13px;color:var(--ink2);line-height:18px}
 .cta{display:grid;grid-template-columns:5fr 7fr;gap:40px;padding:48px;border-radius:28px;background:linear-gradient(135deg,var(--dk),color-mix(in srgb,var(--dk) 70%,#000));color:#fff}
 .cta h2{font-size:34px;line-height:42px}
 .cta__l{display:grid;gap:12px;align-content:start}
@@ -341,9 +334,6 @@ img{display:block}
 .in1{height:44px;border:1px solid var(--ctl);border-radius:12px;padding:0 14px;font:400 15px var(--fu);background:var(--paper);color:var(--ink);outline:0;width:100%}
 textarea.in1{height:84px;padding:10px 14px;resize:none}
 .in1:focus{border-color:var(--a);box-shadow:0 0 0 3px color-mix(in srgb,var(--a) 20%,transparent)}
-.rvl{display:grid;gap:8px}
-.rvl li{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1px solid var(--line);border-radius:12px;font-size:14px;line-height:20px}
-.rvl li div{flex:1;min-width:0}.rvl li small{display:block;color:var(--ink3)}
 .pv{border-radius:24px;border:6px solid var(--ink);background:var(--ink);overflow:hidden;box-shadow:0 10px 30px -12px rgba(18,21,23,.3)}
 .pv__vp{position:relative;overflow:hidden;background:#fff;pointer-events:none;user-select:none}
 .pv__in{position:absolute;left:0;top:0;transform-origin:0 0}
@@ -558,7 +548,6 @@ body.mk-lock,body.mk-lock2{overflow:hidden}
  .vg{grid-template-columns:1fr 1fr;gap:12px}
  .stg{gap:12px}.stg div{padding:24px}.stg b{font-size:44px;line-height:48px}
  .ab,.wy,.txi,.cta{grid-template-columns:1fr}
- .rg{grid-template-columns:1fr}
  .stps{grid-template-columns:1fr 1fr}
  .ft__g{grid-template-columns:1fr 1fr;gap:24px}.ft__g>div:first-child{grid-column:1/-1}
  .txi{gap:24px}
@@ -653,7 +642,6 @@ share:'<path d="M12 3v12M7 8l5-5 5 5M5 14v5h14v-5"/>',grid:'<rect x="4" y="4" wi
 shield:'<path d="M12 3 5 6v6c0 4.5 3 8 7 9 4-1 7-4.5 7-9V6z"/><path d="m9 12 2 2 4-4"/>',
 doc:'<path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 13h5M10 17h5"/>',key:'<circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M16 7l3 3"/>',
 star:'<path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/>',
-quote:'<path d="M7 17c-2 0-3-1.5-3-4 0-4 2-7 5-8M17 17c-2 0-3-1.5-3-4 0-4 2-7 5-8"/>',
 gear:'<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/>',
 img:'<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m4 18 5-5 4 4 3-3 4 4"/>',
 upload:'<path d="M12 16V4M7 9l5-5 5 5M5 20h14"/>',users:'<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3.5 6"/>',
@@ -717,18 +705,16 @@ about:{t:'Об агенте',d:'Фото, подпись и ваш текст',i
 why:{t:'Почему с нами',d:'Три причины и фото',i:'shield',g:1},
 steps:{t:'Как купить в 4 шага',d:'Четыре шага сделки',i:'list',g:1},
 textimg:{t:'Текст с картинкой',d:'Свой текст и одно фото',i:'text',g:1,n:1,x:1},
-reviews:{t:'Отзывы клиентов',d:'Отзывы вводите вы',i:'quote',g:1,n:1},
 lead:{t:'Заявка с выбором формата',d:'Звонок, онлайн или встреча',i:'phone',g:1,n:1},
 faq:{t:'Частые вопросы',d:'Четыре вопроса и ответа',i:'chat',g:1},
 footer:{t:'Подвал',d:'Контакты и политика',i:'doc',lock:'bot'}};
-const DT={featured:'Избранные объекты',directions:'Направления',developers:'Застройщики',stats:'Каталог в цифрах',about:'Об агенте',why:'Почему с нами',steps:'Как купить в 4 шага',textimg:'Покупка без поездки',reviews:'Отзывы клиентов',lead:'Подберём объект под ваш запрос',faq:'Частые вопросы'};
+const DT={featured:'Избранные объекты',directions:'Направления',developers:'Застройщики',stats:'Каталог в цифрах',about:'Об агенте',why:'Почему с нами',steps:'Как купить в 4 шага',textimg:'Покупка без поездки',lead:'Подберём объект под ваш запрос',faq:'Частые вопросы'};
 const DX={about:'Помогаю выбрать проект, сравниваю цены и условия застройщиков и сопровождаю покупку на каждом шаге.',textimg:'Показываю объекты по видеосвязи, а документы оформляем удалённо. Приезжать на сделку не обязательно.'};
-const S={view:'home',step:0,sheet:false,ready:false,site:null,tried:false,confirmDel:null,pv:'desk',focus:null,open:'reviews',accent:'#00732D',hero:'img',fx:50,zm:1,
+const S={view:'home',step:0,sheet:false,ready:false,site:null,tried:false,confirmDel:null,pv:'desk',focus:null,open:'about',accent:'#00732D',hero:'img',fx:50,zm:1,
  name:'Тест Агент Робот',slug:'test-agent-4836',tagline:'Консультант по зарубежной недвижимости',logo:null,photo:null,heroImg:null,tiImg:{},tiSide:{},fileErr:{},hexIn:'',consent:false,langs:['ru'],cur:'USD',phone:'',tg:'',wa:'',mail:'',
- order:['featured','directions','developers','stats','about','why','reviews','lead','faq'],
- vis:{featured:1,directions:1,developers:1,stats:1,about:1,why:1,reviews:1,lead:1,faq:1},
- titles:{},texts:{},mode:'self',picks:['janya','seaview','hado','skypark','bali'],
- reviews:[['Покупатель, Пхукет','Подобрали три проекта под бюджет и сравнили условия. Решение приняли за неделю.'],['Покупатель, Дубай','Все вопросы по документам закрыли удалённо, на сделку ехать не пришлось.'],['Покупатель, Кипр','Объяснили налоги и рассрочку простыми словами, без давления.']]};
+ order:['featured','directions','developers','stats','about','why','lead','faq'],
+ vis:{featured:1,directions:1,developers:1,stats:1,about:1,why:1,lead:1,faq:1},
+ titles:{},texts:{},mode:'self',picks:['janya','seaview','hado','skypark','bali'],};
 const S0=JSON.stringify(S);
 const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 const bs=id=>id.replace(/\d+$/,'');
@@ -748,7 +734,7 @@ const stp=p=>`<span class="stp ${ST[p.st][1]}">${ST[p.st][0]}</span>`;
 /* ---------- блоки витрины ---------- */
 const mono=n=>n.split(/[\s]+/).slice(0,2).map(w=>w[0]).join('');
 function hdr(active){return`<header class="hd"><div class="hd__in"><a class="brand" data-act="gohome"><img class="logo" src="${LOGO()}" alt=""><b>${AG()}</b></a>
-<nav class="hd__nav"><a class="cat ${active==='cat'?'act':''}" data-act="gocat">${ic('grid',18)}Каталог</a><a>Направления</a><a>Об агенте</a><a>Отзывы</a></nav>
+<nav class="hd__nav"><a class="cat ${active==='cat'?'act':''}" data-act="gocat">${ic('grid',18)}Каталог</a><a>Направления</a><a>Об агенте</a></nav>
 <div class="hd__r">${S.langs.length>1?`<span class="seg">${S.langs.map((l,i)=>`<span class="${i===0?'on':''}">${l.toUpperCase()}</span>`).join('')}</span>`:''}<span class="cury">${S.cur} ${ic('down',14)}</span><a class="btn btn--a btn--s">${ic('chat',18)}<span>Написать</span></a></div>
 <a class="btn btn--t hd__m" data-act="gocat">${ic('grid',18)}Каталог</a><button class="hd__b" aria-label="Меню">${ic('menu',20)}</button></div></header>`}
 function chips(pre){return CNChips.map((c,i)=>`<button class="chip ${pre}" data-act="chip" aria-pressed="${i===0?'true':'false'}">${c[0]} ${c[1]}</button>`).join('')}
@@ -785,7 +771,6 @@ steps:()=>`<section class="sx sx--w" data-b="steps"><div class="w">${sxh('steps'
 <li class="rv" style="--i:0"><b>Расскажите, что ищете</b><span>Страна, бюджет и цель покупки.</span></li><li class="rv" style="--i:1"><b>Получите подборку и цены</b><span>Проекты под ваш запрос.</span></li>
 <li class="rv" style="--i:2"><b>Посмотрите объекты и условия</b><span>Онлайн или на месте.</span></li><li class="rv" style="--i:3"><b>Оформите сделку с консультантом</b><span>Сопровождаем до ключей.</span></li></ol></div></section>`,
 textimg:(id)=>`<section class="sx sx--g" data-b="${id}"><div class="w"><div class="txi ${(S.tiSide[id]||'right')==='left'?'txi--l':''}"><div><h2 style="font-size:32px;line-height:40px">${T(id)}</h2><p>${X(id)}</p><div class="btns" style="margin-top:20px"><a class="btn btn--a">Обсудить</a></div></div><img src="${S.tiImg[id]||IM.nerea2}" alt=""></div></div></section>`,
-reviews:()=>`<section class="sx sx--g" data-b="reviews"><div class="w">${sxh('reviews')}<div class="sx__b rg">${S.reviews.slice(0,3).map((r,i)=>`<article class="rw rv" style="--i:${i}">${ic('quote',32)}<p>${r[1]}</p><footer><i>${r[0][0]}</i><div><b>${r[0].split(',')[0]}</b><span>${r[0].split(', ')[1]||''}</span></div></footer></article>`).join('')}</div></div></section>`,
 lead:()=>`<section class="sx sx--w" data-b="lead"><div class="w"><div class="cta"><div class="cta__l"><h2>${T('lead')}</h2><p>Выберите удобный формат, остальное сделаем сами.</p>
 <button class="opt" data-act="opt" aria-pressed="true">${ic('phone',44)}<b>Звонок</b><span>Перезвоню в удобное время</span></button>
 <button class="opt" data-act="opt" aria-pressed="false">${ic('video',44)}<b>Онлайн-встреча</b><span>Покажу проекты на экране</span></button>
@@ -848,8 +833,8 @@ function renderCat(root){root.classList.add('ps','nonw');theme(root,S.accent);ro
 /* ---------- кабинет ---------- */
 const STEPS=['Профиль','Бренд и цвет','Главная страница','Объекты','Контакты','Публикация'];
 /* ---------- кабинет: мастер из 6 шагов ---------- */
-const SINGLES=['featured','directions','developers','stats','about','why','steps','reviews','lead','faq'];
-const SHEET_IDS=['featured','directions','developers','stats','about','why','steps','textimg','reviews','lead','faq'];
+const SINGLES=['featured','directions','developers','stats','about','why','steps','lead','faq'];
+const SHEET_IDS=['featured','directions','developers','stats','about','why','steps','textimg','lead','faq'];
 const TIMAX=5;
 const STEP_T=['Профиль','Бренд и цвет','Главная страница','Объекты','Контакты','Публикация'];
 const FOC=['about','hero',null,'featured','footer',null];
@@ -887,7 +872,7 @@ const inp=(k,val,ph,x='')=>`<input class="in1" data-act="fld" data-k="${k}" valu
 const cbx=(k,on,label)=>`<button type="button" class="cbx" role="checkbox" aria-checked="${on?'true':'false'}" data-act="chk" data-k="${k}"><span class="cbx__b">${ic('check',14)}</span><span>${label}</span></button>`;
 
 function sheetBlock(id){const b=BLK[id],tn=tiIds().length,isT=id==='textimg',has=!isT&&S.order.includes(id),off=has||(isT&&tn>=TIMAX);
- const pv={featured:'<i class="t"></i><div class="g"><i class="a"></i><i class="a"></i><i class="a"></i></div>',directions:'<i class="t"></i><div class="g"><i class="a"></i><i></i><i></i></div>',developers:'<i class="t"></i><div class="g"><i></i><i class="a"></i><i></i></div>',stats:'<div class="g"><i class="a"></i><i class="a"></i><i class="a"></i></div>',steps:'<i class="t"></i><i></i><i></i><i></i>',textimg:'<i class="t"></i><div class="im"></div>',reviews:'<i class="t"></i><div class="g"><i></i><i></i><i></i></div>',lead:'<div class="dk"></div>',why:'<i class="t"></i><i></i><i></i>',about:'<div class="im"></div><i></i>',faq:'<i class="t"></i><i></i><i></i>'}[id]||'<i></i>';
+ const pv={featured:'<i class="t"></i><div class="g"><i class="a"></i><i class="a"></i><i class="a"></i></div>',directions:'<i class="t"></i><div class="g"><i class="a"></i><i></i><i></i></div>',developers:'<i class="t"></i><div class="g"><i></i><i class="a"></i><i></i></div>',stats:'<div class="g"><i class="a"></i><i class="a"></i><i class="a"></i></div>',steps:'<i class="t"></i><i></i><i></i><i></i>',textimg:'<i class="t"></i><div class="im"></div>',lead:'<div class="dk"></div>',why:'<i class="t"></i><i></i><i></i>',about:'<div class="im"></div><i></i>',faq:'<i class="t"></i><i></i><i></i>'}[id]||'<i></i>';
  const btn=isT?(tn>=TIMAX?`<button class="cb1" disabled>Добавлено ${TIMAX} из ${TIMAX}</button>`:`<button class="cb1 cb1--a" data-act="addb" data-id="textimg">${ic('plus',18)}Добавить (${tn} из ${TIMAX})</button>`)
   :has?`<button class="cb1" disabled>Уже на главной</button>`:`<button class="cb1 cb1--a" data-act="addb" data-id="${id}">${ic('plus',18)}Добавить</button>`;
  return`<div class="bc ${off?'bc--off':''}" data-id="${id}"><div class="bc__p">${pv}</div><b>${b.t}${b.n?'<span class="nw">Новое</span>':''}</b><small>${b.d}</small>${btn}</div>`}
@@ -895,8 +880,7 @@ function blockRow(id,idx,n){const b=blk(id),on=S.vis[id],lock=!!b.lock,openR=S.o
  let st='';if(openR&&b.g){const fields=`<div class="fl"><label>Заголовок блока</label><input class="in1" data-act="ttl" data-id="${id}" value="${T(id)}"></div>${b.x?`<div class="fl"><label>Текст</label><textarea class="in1" data-act="txt" data-id="${id}">${X(id)}</textarea></div>`:''}`;
   const tix=isT?`<div class="fl"><label>Картинка</label><div class="upl"><div class="upl__p ${S.tiImg[id]?'':'ex'}"><img src="${S.tiImg[id]||IM.nerea2}" alt=""><span class="upl__t">${S.tiImg[id]?'Ваше фото':'Пример'}</span></div><div class="upl__c">${fileBtn('ti',id,S.tiImg[id]?'Заменить фото':'Загрузить фото')}${S.tiImg[id]?`<button type="button" class="cb1 cb1--s" data-act="uprm" data-key="ti" data-id="${id}">Убрать фото</button>`:''}${upHint('ti',id,5)}</div></div></div>
 <div class="fl"><label>С какой стороны картинка</label><div class="sg sg--f" role="group" aria-label="Сторона картинки">${[['left','Слева'],['right','Справа']].map(a=>`<button type="button" class="${(S.tiSide[id]||'right')===a[0]?'on':''}" data-act="tiside" data-id="${id}" data-v="${a[0]}">${a[1]}</button>`).join('')}</div></div>`:'';
-  const rv=id==='reviews'?`<ul class="rvl">${S.reviews.map((r,i)=>`<li><div><b>${esc(r[0])}</b><small>${esc(r[1])}</small></div><button class="ib" data-act="rrm" data-i="${i}" aria-label="Удалить">${ic('x',16)}</button></li>`).join('')}</ul><div class="fl"><label>Новый отзыв</label><input class="in1" id="rvn" placeholder="Кто пишет, например: Покупатель, Дубай"><textarea class="in1" id="rvt" placeholder="Текст отзыва" style="margin-top:6px"></textarea></div><div><button class="cb1 cb1--s" data-act="radd">${ic('plus',16)}Добавить отзыв</button></div>`:'';
-  st=`<div class="sr__s">${fields}${tix}${rv}</div>`}
+  st=`<div class="sr__s">${fields}${tix}</div>`}
  const cd=S.confirmDel===id?`<div class="cpop" role="alertdialog" aria-label="Удалить блок"><b>Удалить блок?</b><p>Его можно будет добавить снова.</p><div class="cpop__f"><button type="button" class="cb1 cb1--s" data-act="delno">Отмена</button><button type="button" class="cb1 cb1--s cb1--d" data-act="delok" data-id="${id}">Удалить</button></div></div>`:'';
  return`<div class="sr ${on||lock?'':'off'} ${lock?'lock':''}" data-list="blocks" data-id="${id}"><div class="sr__r"><span class="gp ${lock?'n':''}" title="Перетащить">${ic('grip',20)}</span><span class="sr__ic">${ic(b.i,20)}</span>
 <div class="sr__t"><b>${rowTitle(id)}${b.n?'<span class="nw">Новое</span>':''}</b><small>${lock?(b.lock==='top'?'Всегда первая':'Всегда последний'):b.d}</small></div>
@@ -1050,7 +1034,6 @@ const GT=[
 ['Каталог в цифрах','Новый','Итоги из фасетов каталога: объекты, страны, минимальная цена','Главная','Нет'],
 ['Об агенте','Изменён','Фото, имя, подпись из профиля; новый текст вводит агент','Блок консультанта на главной','Текст теперь редактируется, остальное прежнее'],
 ['Почему с нами, Как купить, Частые вопросы','Как есть','Тексты из словаря витрины','Главная','Блоки можно скрывать и менять местами'],
-['Отзывы','Новый','Вводит агент, до 6 отзывов; своих отзывов в базе нет','Главная','Нет'],
 ['Заявка с выбором формата','Изменён','Формат (звонок, онлайн, встреча), имя, контакт, honeypot; идёт в существующий поток заявок','Форма заявки на странице объекта','Выбор формата можно добавить и туда'],
 ['Текст с картинкой','Новый','Заголовок, текст и фото вводит агент','Главная','Нет'],
 ['Текст с картинкой: до 5 штук','Новый','Заголовок, текст, фото агента (загрузка) и сторона картинки; остальные блоки одиночные','Главная','Нет'],
@@ -1074,7 +1057,7 @@ function head(t,d){return`<div class="mk-h"><h2>${t}</h2><p>${d}</p></div>`}
 const built={};
 const TABS=[['home','Главная'],['cat','Каталог'],['cab','Кабинет'],['blk','Блоки']];
 function buildSec(k){if(built[k])return;built[k]=1;const s=SEC[k];
- if(k==='home'){s.insertAdjacentHTML('beforeend',head('Главная сайта агента','Заставка с поиском, избранные мозаикой, направления, застройщики, цифры, об агенте, отзывы, заявка.'));
+ if(k==='home'){s.insertAdjacentHTML('beforeend',head('Главная сайта агента','Заставка с поиском, избранные мозаикой, направления, застройщики, цифры, об агенте, заявка.'));
   const t=document.createElement('div');t.className='mk-tools';t.innerHTML='<b>Цвет агента:</b><span class="mk-sw">'+PAL.map((p,i)=>`<button style="background:${p[1]}" title="${p[0]}" aria-label="${p[0]}" aria-pressed="${i===0}" data-act="col" data-c="${p[1]}"></button>`).join('')+'</span><span id="colname">Зелёный</span>';s.appendChild(t);
   mkPage(s,fr=>{renderA2(fr,{});const tw=$('.tw',fr);if(tw&&!STILL&&!RM)typer(tw)})}
  if(k==='cat'){s.insertAdjacentHTML('beforeend',head('Каталог сайта агента','Фильтры как в основном каталоге, избранные агента первыми, счётчик на кнопке.'));mkPage(s,renderCat)}
@@ -1136,9 +1119,7 @@ document.addEventListener('click',e=>{const t=e.target.closest('[data-act],.mk-t
  else if(a==='padd'){if(S.picks.length<8)S.picks.push(t.dataset.id);S.focus='featured';rerenderWiz();rerenderA2()}
  else if(a==='prm'){S.picks=S.picks.filter(x=>x!==t.dataset.id);S.focus='featured';rerenderWiz();rerenderA2()}
  else if(a==='pup'){const i=S.picks.indexOf(t.dataset.id);if(i>0){S.picks.splice(i,1);S.picks.splice(i-1,0,t.dataset.id)}S.focus='featured';rerenderWiz();rerenderA2()}
- else if(a==='pvm'){S.pv=t.dataset.v;rerenderWiz()}
- else if(a==='rrm'){S.reviews.splice(+t.dataset.i,1);S.focus='reviews';rerenderWiz();rerenderA2()}
- else if(a==='radd'){const n=$('#rvn',fr).value.trim(),x=$('#rvt',fr).value.trim();if(n&&x){S.reviews.unshift([n,x]);S.focus='reviews';rerenderWiz();rerenderA2()}}});
+ else if(a==='pvm'){S.pv=t.dataset.v;rerenderWiz()}});
 document.addEventListener('input',e=>{const t=e.target,a=t.dataset.act;if(!a)return;
  if(a==='fld')return fldInput(t);
  if(a==='fx'||a==='zm'){if(a==='fx')S.fx=+t.value;else S.zm=t.value/100;S.focus='hero';$$('.crop__p').forEach(c=>{c.style.setProperty('--fx',S.fx+'%');c.style.setProperty('--zm',S.zm)});$$('.pv .h2__bg').forEach(b=>{b.style.setProperty('--fx',S.fx+'%');b.style.setProperty('--zm',S.zm)});rerenderA2Light()}
