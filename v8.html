@@ -2598,7 +2598,7 @@ if(RM)document.addEventListener('DOMContentLoaded',()=>$$('.tw').forEach(t=>t.te
 
 /* ---------- события ---------- */
 const frOf=e=>e.closest('.fr');
-function syncCat(fr){const f=fr._f,sel=fr._sel,n=cntF(fr),on=k=>f.has(k)&&!/^(beds:any|per:obj)$/.test(k);
+function syncCat0(fr){const f=fr._f,sel=fr._sel,n=cntF(fr),on=k=>f.has(k)&&!/^(beds:any|per:obj)$/.test(k);
  $$('[data-f]',fr).forEach(el=>el.setAttribute(el.getAttribute('role')==='checkbox'?'aria-checked':'aria-pressed',f.has(el.dataset.f)));
  $$('[data-in]',fr).forEach(el=>{if(!f.has(el.dataset.k))el.value=''});
  $$('.pr[data-act=pick]',fr).forEach(r=>r.setAttribute('aria-checked',sel.has(r.dataset.k)));
@@ -2764,8 +2764,8 @@ function kcard(p,i,fav){const o=OB[p.id],free=o.av?' · свободно '+o.av:
 function pcard(p,i,s){return kcard(p,i,s)}function featCard(f,i){return kcard(f.p,i,f.our?0:1)}
 const kHead=(id,more,sub)=>`<div class="k-sh"><div><h2>${T(id)}</h2>${sub?`<p>${sub}</p>`:''}</div>${more||''}</div>`;
 Object.assign(RB,{
-featured:()=>`<section class="k-sec k-sec--g" data-b="featured"><div class="kw">${kHead('featured',`<a class="k-more" data-act="gocat">Весь каталог ${ic('arr',18)}</a>`,'')}<div class="k-grid">${featList().map(featCard).join('')}</div></div></section>`,
-directions:()=>`<section class="k-sec" data-b="directions"><div class="kw">${kHead('directions','','Куда сейчас покупают клиенты')}<div class="k-dir">${DIRS.slice(0,6).map((d,i)=>{const n=CNM[CK[d[0]]||d[0]];return`<a class="k-dt rv" style="--i:${i}" data-act="gocat"><img src="${IM[d[1]]}" alt=""><div><h3>${d[0]}</h3><span>${n} ${pl(n,'объект','объекта','объектов')}</span></div></a>`}).join('')}</div></div></section>`,
+featured:()=>`<section class="k-sec k-sec--g" data-b="featured"><div class="kw">${kHead('featured',`<a class="k-more" data-act="kall">Весь каталог ${ic('arr',18)}</a>`,'')}<div class="k-grid">${featList().map(featCard).join('')}</div></div></section>`,
+directions:()=>`<section class="k-sec" data-b="directions"><div class="kw">${kHead('directions','','Куда сейчас покупают клиенты')}<div class="k-dir">${DIRS.slice(0,6).map((d,i)=>{const n=CNM[CK[d[0]]||d[0]];return`<a class="k-dt rv" style="--i:${i}" data-act="kdir" data-k="${d[0]}"><img src="${IM[d[1]]}" alt=""><div><h3>${d[0]}</h3><span>${n} ${pl(n,'объект','объекта','объектов')}</span></div></a>`}).join('')}</div></div></section>`,
 stats:()=>`<section class="k-sec k-sec--g" data-b="stats"><div class="kw">${kHead('stats')}<div class="k-st4">
 <div class="rv" style="--i:0"><b data-cnt="${TOTAL}">${fmt(TOTAL)}</b><span>объекта в каталоге</span></div><div class="rv" style="--i:1"><b data-cnt="12">12</b><span>стран на выбор</span></div>
 <div class="rv" style="--i:2"><b data-cnt="47357" data-pre="от $">от $${fmt(47357)}</b><span>самая низкая цена входа</span></div><div class="rv" style="--i:3"><b data-cnt="${hstats('Все страны').r}">${hstats('Все страны').r}</b><span>готовых к заселению</span></div></div></div></section>`,
@@ -2963,6 +2963,30 @@ document.addEventListener('click',e=>{const t=e.target.closest('[data-act]');if(
  else if(a==='kqs'){delete st.a[QF[st.i]];st.i=Math.min(5,st.i+1);draw()}
  else if(a==='kqb'){clearTimeout(q._tm);st.i=Math.max(0,st.i-1);draw()}
  else if(a==='kqr'){clearTimeout(q._tm);st.i=0;st.a={};draw()}});
+
+/* ---- входы в каталог с готовыми фильтрами: направление, чипы заставки, подбор ---- */
+function syncCat(fr){syncCat0(fr);const l=$('.fdd--loc .fp>span',fr);if(l){const k=[...fr._sel];l.textContent=k.length===1?(Object.keys(CK).filter(n=>CK[n]===k[0]).sort((a,b)=>a.length-b.length)[0]||k[0]):'Страна или город'}}
+function goCat(t,o){o=o||{};const inSite=!!t.closest('#mksite'),fr0=t.closest('.fr');if(fr0&&fr0._v==='obj')objBack(fr0);
+ if(inSite){S.site='cat';renderSite()}else show('cat');
+ const cf=inSite?$('#mksite .ms__fr'):$('#s-cat .fr');if(!cf||cf._v!=='cat')return;
+ cf._sel=new Set((o.keys||[]).filter(k=>CNM[k]));cf._f=new Set(['beds:any','per:obj'].concat((o.types||[]).map(x=>'type:'+x),o.ready?['done:Сдан']:[]));
+ $$('[data-in]',cf).forEach(el=>{el.value=''});
+ const bud=(k,v)=>{const el=$(`[data-k=budget][data-in=${k}]`,cf);if(el)el.value=v?fmt(v):''};bud('from',o.b0);bud('to',o.b1);
+ if(o.b0||o.b1)cf._f.add('budget:on');
+ const q=$('.fi input',cf);if(q)q.value='';
+ syncCat(cf);setView(cf,innerWidth<=767?'map':'both');applyCat(cf,true);
+ setTimeout(()=>{fitCat(cf);if(cf._map&&cf._items.length){cf._map.invalidateSize();if(!cf._sel.size){cf._map.setView([22,60],2.5,{animate:false});return}const ll=cf._items.map(([p])=>LL[p.id]).filter(Boolean);if(ll.length)cf._map.fitBounds(L.latLngBounds(ll),{padding:[70,70],maxZoom:9,animate:false})}},80)}
+const keyOf=n=>CK[n]||n;
+function quizFilters(a){const o={keys:[],types:[]};if(a.area)o.keys=[keyOf(a.area)];
+ const kd=a.kind?QKIND.find(k=>k[0]===a.kind):null;if(kd)kd[4].forEach(c=>{const n=Object.keys(TM8).find(x=>TM8[x]===c);if(n&&!o.types.includes(n))o.types.push(n)});
+ const ci=a.budget?QN.indexOf(a.budget):-1;if(ci>=0){o.b0=QB[ci];if(QB[ci+1]<1e12)o.b1=QB[ci+1]}
+ if(a.term==='ready')o.ready=1;return o}
+document.addEventListener('click',e=>{const t=e.target.closest('[data-act]');if(!t||t.closest('.pv'))return;const a=t.dataset.act;if(/^(kdir|kall|kcn|kcat)$/.test(a)){e.stopPropagation();e.preventDefault()}
+ if(a==='kall'){goCat(t,{})}
+ else if(a==='kdir'){goCat(t,{keys:[keyOf(t.dataset.k)]})}
+ else if(a==='kcn'){const k=t.dataset.k;S.kc=k;goCat(t,{keys:k==='Все страны'?[]:[keyOf(k)]})}
+ else if(a==='kcat'){const q=t.closest('.k-qz');goCat(t,quizFilters((q&&q._qz&&q._qz.a)||{}))}},true);
+document.addEventListener('click',e=>{const t=e.target.closest('[data-act=reset]');if(!t||t.closest('.pv'))return;const fr=t.closest('.fr');if(!fr||fr._v!=='cat')return;setTimeout(()=>{syncCat(fr);applyCat(fr,true);if(fr._map)fr._map.setView([22,60],2.5,{animate:false})},0)});
 
 
 /* ---------- старт ---------- */
