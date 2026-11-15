@@ -2202,8 +2202,7 @@ function featCard(f,i){const p=f.p;return`<a class="fc rv" style="--i:${i}" data
 <div class="fc__b"><small>${p.dev||p.type}</small><h3>${p.name}</h3><p>${p.city}, ${p.country}</p>${priceH(p)}</div></a>`}
 const sxh=(id,more)=>`<div class="sx__h"><h2>${T(id)}</h2>${more||''}</div>`;
 const RB={
-featured:(n)=>`<section class="sx sx--w" data-b="featured"><div class="w"><div class="sx__h"><h2>${T('featured')}</h2><span class="cnt">8 из ${fmt(TOTAL)}</span><a class="more">Весь каталог ${ic('arr',18)}</a></div>
-<p class="sub">Весь каталог откроется после поиска</p><div class="sx__b mos">${featList().map(featCard).join('')}</div></div></section>`,
+featured:(n)=>`<section class="sx sx--w" data-b="featured"><div class="w"><div class="sx__h"><h2>${T('featured')}</h2><a class="more">Весь каталог ${ic('arr',18)}</a></div><div class="sx__b mos">${featList().map(featCard).join('')}</div></div></section>`,
 directions:()=>`<section class="sx sx--g" data-b="directions"><div class="w">${sxh('directions')}<p class="sub">Куда сейчас покупают клиенты</p>
 <div class="sx__b dg">${DIRS.map((d,i)=>{const n=CNM[CK[d[0]]||d[0]];return`<a class="dt rv" style="--i:${i}"><img src="${IM[d[1]]}" alt=""><div><h3>${d[0]}</h3><span>${n} ${pl(n,'объект','объекта','объектов')}</span></div></a>`}).join('')}</div></div></section>`,
 developers:()=>`<section class="sx sx--w" data-b="developers"><div class="w">${sxh('developers')}<p class="sub">Проекты крупных застройщиков из нашего каталога</p>
@@ -2765,7 +2764,7 @@ function kcard(p,i,fav){const o=OB[p.id],free=o.av?' · свободно '+o.av:
 function pcard(p,i,s){return kcard(p,i,s)}function featCard(f,i){return kcard(f.p,i,f.our?0:1)}
 const kHead=(id,more,sub)=>`<div class="k-sh"><div><h2>${T(id)}</h2>${sub?`<p>${sub}</p>`:''}</div>${more||''}</div>`;
 Object.assign(RB,{
-featured:()=>`<section class="k-sec k-sec--g" data-b="featured"><div class="kw">${kHead('featured',`<a class="k-more" data-act="gocat">Весь каталог ${ic('arr',18)}</a>`,`8 из ${fmt(TOTAL)}. Весь каталог откроется после поиска`)}<div class="k-grid">${featList().map(featCard).join('')}</div></div></section>`,
+featured:()=>`<section class="k-sec k-sec--g" data-b="featured"><div class="kw">${kHead('featured',`<a class="k-more" data-act="gocat">Весь каталог ${ic('arr',18)}</a>`,'')}<div class="k-grid">${featList().map(featCard).join('')}</div></div></section>`,
 directions:()=>`<section class="k-sec" data-b="directions"><div class="kw">${kHead('directions','','Куда сейчас покупают клиенты')}<div class="k-dir">${DIRS.slice(0,6).map((d,i)=>{const n=CNM[CK[d[0]]||d[0]];return`<a class="k-dt rv" style="--i:${i}" data-act="gocat"><img src="${IM[d[1]]}" alt=""><div><h3>${d[0]}</h3><span>${n} ${pl(n,'объект','объекта','объектов')}</span></div></a>`}).join('')}</div></div></section>`,
 stats:()=>`<section class="k-sec k-sec--g" data-b="stats"><div class="kw">${kHead('stats')}<div class="k-st4">
 <div class="rv" style="--i:0"><b data-cnt="${TOTAL}">${fmt(TOTAL)}</b><span>объекта в каталоге</span></div><div class="rv" style="--i:1"><b data-cnt="12">12</b><span>стран на выбор</span></div>
