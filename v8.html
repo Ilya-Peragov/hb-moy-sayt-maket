@@ -1920,6 +1920,16 @@ svg.leaflet-image-layer.leaflet-interactive path {
 .v8 .q2-cta .btn{white-space:normal;height:auto;min-height:48px;padding:12px 18px;line-height:20px;text-align:center;justify-content:center;max-width:100%}
 .v8 .q2[data-cur="5"] .q2-count{display:none}
 
+.v8 .q2-more{display:flex;align-items:center;gap:16px;margin-top:12px;padding:10px 16px 10px 10px;border-radius:16px;background:var(--soft,var(--pg));box-shadow:inset 0 0 0 1px var(--line);color:inherit;cursor:pointer}
+.v8 .q2-more:hover{box-shadow:inset 0 0 0 1.5px var(--a)}
+.v8 .q2-more__t{position:relative;display:flex;flex:none;overflow:hidden;border-radius:12px}
+.v8 .q2-more__t img{width:84px;height:64px;object-fit:cover;filter:blur(5px) brightness(.7);transform:scale(1.1)}
+.v8 .q2-more__l{position:absolute;inset:0;display:grid;place-items:center;color:#fff;background:rgb(9 12 19/.25)}
+.v8 .q2-more__x{display:grid;gap:2px}.v8 .q2-more__x b{font:600 18px/24px var(--fd)}.v8 .q2-more__x span{font-size:13px;line-height:18px;color:var(--ink2)}
+.v8 .q2-lead{margin-top:14px;font-size:15px;line-height:22px;color:var(--ink2)}.v8 .q2-lead b{color:var(--ink)}
+.v8 .q2-cta .btn--d{flex:1 1 320px;height:56px;font-size:16px}.v8 .q2-cta .btn--t{flex:0 1 auto;height:56px}
+@container (max-width:767px){.v8 .q2-more__t img{width:60px;height:56px}.v8 .q2-more__x b{font-size:16px;line-height:20px}.v8 .q2-more{gap:12px}}
+
 </style></head><body><script>/* @preserve
  * Leaflet 1.9.4, a JS library for interactive maps. https://leafletjs.com
  * (c) 2010-2023 Vladimir Agafonkin, (c) 2010-2011 CloudMade
@@ -2225,7 +2235,7 @@ about:()=>{const cl=contactList(),has=n=>cl.some(c=>c[0]===n);return`<section cl
 <div class="btns"><a class="btn btn--a">${ic('chat',18)}${has('Telegram')?'Написать в Telegram':has('WhatsApp')?'Написать в WhatsApp':'Написать'}</a><a class="btn btn--o">${ic('phone',18)}${has('Телефон')?'Позвонить':'Заказать звонок'}</a></div></div></div></div></section>`},
 why:()=>`<section class="sx sx--g" data-b="why"><div class="w">${sxh('why')}<div class="sx__b wy"><ul>
 <li>${ic('shield',24)}<b>Только проверенные проекты</b><span>Каждый объект есть в каталоге с ценой и сроком сдачи.</span></li>
-<li>${ic('doc',24)}<b>Цены без наценки</b><span>Показываем цену застройщика и сравниваем с рынком города.</span></li>
+<li>${ic('doc',24)}<b>Планировки и этажи</b><span>Свободные квартиры и планировки по каждому проекту.</span></li>
 <li>${ic('key',24)}<b>Сопровождение до ключей</b><span>От подбора и брони до оформления документов.</span></li></ul>
 <div class="wy__i"><img src="${IM.nereaInt}" alt=""></div></div></div></section>`,
 steps:()=>`<section class="sx sx--w" data-b="steps"><div class="w">${sxh('steps')}<ol class="sx__b stps">
@@ -2676,7 +2686,7 @@ function syncFab(){document.body.classList.toggle('hasfab',!!S.fab);
 function fabVis(){const f=$('#mkfab');if(!f)return;const k=($('.mk-sec.on')||{}).id;
  const en=!!S.fab&&(!!S.site||k==='s-home'||k==='s-cat')&&!S.sheet&&!objBlocked();let on=false;
  if(en){const sc=S.site?(($('.ms__v')||{}).scrollTop||0):scrollY;on=sc>320;
-  if(on&&f.classList.contains('fab--c')){const root=S.site?$('#mksite'):$('.mk-sec.on');on=!$$('[data-b=konsult] .kf,[data-b=lead] .cta__r',root).some(el=>{const r=el.getBoundingClientRect();return r.top<innerHeight&&r.bottom>0})}}
+  if(on){const root=S.site?$('#mksite'):$('.mk-sec.on');on=!$$('[data-b=konsult] .kf,[data-b=lead] .cta__r,.k-qz,.k-map,.k-or',root).some(el=>{const r=el.getBoundingClientRect();return r.top<innerHeight&&r.bottom>0&&(f.classList.contains('fab--c')?!el.matches('.k-map,.k-or'):1)})}}
  f.classList.toggle('on',on);f.inert=!on;f.setAttribute('aria-hidden',on?'false':'true');if(!on)closeFab()}
 addEventListener('scroll',fabVis,{passive:true,capture:true});
 document.addEventListener('click',e=>{if(!e.target.closest('.kf__cc'))closeKcc();if(!e.target.closest('.fab'))closeFab()});
@@ -2762,7 +2772,7 @@ stats:()=>`<section class="k-sec k-sec--g" data-b="stats"><div class="kw">${kHea
 <div class="rv" style="--i:2"><b data-cnt="47357" data-pre="от $">от $${fmt(47357)}</b><span>самая низкая цена входа</span></div><div class="rv" style="--i:3"><b data-cnt="${hstats('Все страны').r}">${hstats('Все страны').r}</b><span>готовых к заселению</span></div></div></div></section>`,
 why:()=>`<section class="k-sec" data-b="why"><div class="kw">${kHead('why')}<div class="k-why"><ul>
 <li>${ic('shield',24)}<b>Только проверенные проекты</b><span>Каждый объект есть в каталоге с ценой и сроком сдачи.</span></li>
-<li>${ic('doc',24)}<b>Цены без наценки</b><span>Показываем цену застройщика и сравниваем с рынком города.</span></li>
+<li>${ic('doc',24)}<b>Планировки и этажи</b><span>Свободные квартиры и планировки по каждому проекту.</span></li>
 <li>${ic('key',24)}<b>Сопровождение до ключей</b><span>От подбора и брони до оформления документов.</span></li></ul><div class="k-why__i"><img src="${IM.nereaInt}" alt=""></div></div></div></section>`,
 steps:()=>`<section class="k-sec k-sec--g" data-b="steps"><div class="kw">${kHead('steps')}<ol class="k-steps">${[['Расскажите, что ищете','Страна, бюджет и цель покупки.'],['Получите подборку и цены','Проекты под ваш запрос.'],['Посмотрите объекты и условия','Онлайн или на месте.'],['Оформите сделку с консультантом','Сопровождаем до ключей.']].map((s,i)=>`<li class="rv" style="--i:${i}"><i>0${i+1}</i><b>${s[0]}</b><span>${s[1]}</span></li>`).join('')}</ol></div></section>`,
 faq:()=>`<section class="k-sec" data-b="faq"><div class="kw">${kHead('faq')}<div class="k-faq">${[['Можно ли купить недвижимость удалённо?','Да, сделку можно провести онлайн: показываем объекты по видеосвязи, документы подписываются удалённо.'],['Есть ли рассрочка от застройщика?','У большинства строящихся проектов есть план платежей. Условия видны в карточке объекта и уточняются у консультанта.'],['Какие расходы кроме цены объекта?','Налоги и сборы зависят от страны. Расскажу заранее, чтобы сумма не стала сюрпризом.'],['Что делать после покупки?','Помогу с договором управления, сдачей в аренду и перепродажей, если понадобится.']].map((q,i)=>`<div class="k-faq__i ${i===0?'open':''}"><button type="button" class="k-faq__q" data-act="faq">${q[0]}${ic('down',20)}</button><div class="k-faq__a">${q[1]}</div></div>`).join('')}</div></div></section>`,
@@ -2915,13 +2925,14 @@ function qPicks(a){const pass=(p,b)=>{const ci=b.budget?QN.indexOf(b.budget):-1,
  const g=a.goal,fl=featList().map(x=>x.p.id);list=list.slice().sort((x,y)=>g==='rent'?x.price-y.price:g==='capital'?(fl.includes(y.id)-fl.includes(x.id))||y.price-x.price:(x.st==='ready'?0:1)-(y.st==='ready'?0:1)||x.price-y.price);
  if(list.length<3)list=list.concat(featList().map(x=>x.p).filter(p=>!list.includes(p))).slice(0,3);
  return{list:list.slice(0,3),widened:w}}
+function qTotal(a){let b={...a},w=[],n=qCnt(b);for(const f of ['term','kind','area','budget']){if(n>3)break;if(!b[f])continue;b={...b};delete b[f];w.push(f);n=qCnt(b)}return{n:Math.max(n,4),w,exact:qCnt(a)}}
 const QWN={term:'срок',kind:'тип жилья',area:'страну',budget:'бюджет'};
 const QCL=()=>(S.slug||'agent').replace(/[^a-z0-9]/gi,'').slice(-6).toUpperCase()||'AGENT1';
 /* ссылки итога: формат как у Калинки (messenger.ts): текст подбора + хвост (ref: <поверхность> cl: <код агента>) и start-payload бота с кодом агента */
 function qLinks(a){const parts=[a.area?a.area:'',a.kind?qLabel('kind',a.kind).toLowerCase():'',a.budget?qLabel('budget',a.budget):'',a.term?qLabel('term',a.term).toLowerCase():''].filter(Boolean),
- txt='Здравствуйте! Подбираю недвижимость'+(parts.length?': '+parts.join(', '):'')+(a.goal?'. Цель: '+qLabel('goal',a.goal).toLowerCase():'')+'. (ref: HBPST cl: '+QCL()+')',
+ txt='Здравствуйте! Подбираю недвижимость'+(parts.length||a.goal?': '+parts.concat(a.goal?['цель: '+qLabel('goal',a.goal).toLowerCase()]:[]).join(', '):'')+'. (ref: HBPST cl: '+QCL()+')',
  code=QF.map(f=>{const arr={goal:QGOAL,budget:QN,area:QCTRY,kind:QKIND,term:QTERM}[f],v=a[f];if(!v)return'0';return String(arr.findIndex(x=>(x[0]||x)===v)+1)}).join('');
- return{wa:'https://wa.me/447418315506?text='+encodeURIComponent(txt),tg:'https://t.me/charlie_hb_bot?start=c1_ru_hb_general_-_'+QCL()+'_-_q'+code}}
+ return{wa:'https://wa.me/447418315506?text='+encodeURIComponent(txt),tg:'https://t.me/charlie_hb_bot?start=c1_ru_hb-pst_general_-_'+QCL()+'_-_q'+code}}
 function qTiles(st,a){const cur=(f,v)=>a[f]===v?' aria-pressed="true"':' aria-pressed="false"';
  const tile=(f,v,t,s,img,ex)=>{const n=qTile(a,f,v);return`<button type="button" class="q2-t${n===0?' is-zero':''}" data-act="kqp" data-f="${f}" data-v="${v}"${cur(f,v)}${n===0?' aria-disabled="true"':''}><img src="${IM[img]}" alt="" loading="lazy"><span class="q2-t__s"></span>${n!==null?`<span class="q2-t__n">${n>0?qObj(n):'нет вариантов'}</span>`:''}<span class="q2-t__c">${ic('check',16)}</span><span class="q2-t__x"><b>${t}</b>${s?`<span>${s}</span>`:''}${ex||''}</span></button>`};
  if(st===0)return['t3',QGOAL.map(g=>tile('goal',g[0],g[1],g[2],g[3]))];
@@ -2931,14 +2942,17 @@ function qTiles(st,a){const cur=(f,v)=>a[f]===v?' aria-pressed="true"':' aria-pr
  return['t3',QTERM.map(k=>tile('term',k[0],k[1],k[2],k[3]))]}
 function qzBody(i,a){a=a&&!Array.isArray(a)?a:{};const total=FAC.length,fresh=i===0&&!QF.slice(1).some(f=>a[f]),cur=i>=5?qCnt(a):qCnt(a),done=i>=5;
  const rail=`<ol class="q2-rail" aria-label="Шаги">${QRAIL.map((l,k)=>`<li class="${k===i?'is-cur':k<i?'is-done':''}"${k===i?' aria-current="step"':''}><span class="q2-rail__b"></span><span class="q2-rail__t">${l}</span><span class="q2-rail__v">${k<i?(a[QF[k]]?qLabel(QF[k],a[QF[k]]):'любой'):''}</span></li>`).join('')}</ol>`;
- const who=`<div class="q2-who"><img src="${PHOTO()}" alt=""><span><span class="q2-who__n">Подбор и показ ведёт наш консультант</span><span class="q2-who__n">Ваш консультант: <b>${AG()}</b>${ic('badge',14)}</span><small>Для покупателя все наши услуги бесплатны</small></span></div>`;
+ const who=`<div class="q2-who"><img src="${PHOTO()}" alt=""><span><span class="q2-who__n">Подбор и показ ведёт наш консультант</span><span class="q2-who__n">Ваш консультант: <b>${AG()}</b>${ic('badge',14)}</span></span></div>`;
  let head,body;
  if(!done){const[t,h]=QQ[QF[i]],[cls,tiles]=qTiles(i,a);head=`<p class="q2-of">Шаг ${i+1} из 5</p><h2 class="q2-q">${t}</h2><p class="q2-hint">${h}</p>`;body=`<div class="q2-tiles ${cls}">${tiles.join('')}</div>`}
  else{const r=qPicks(a),sum=['Подбор'].concat(QF.map(f=>a[f]?qLabel(f,a[f]):'')).filter(Boolean).join(' · ').toUpperCase(),lk=qLinks(a),n=cur;
-  head=`<p class="q2-of">${esc(sum)}</p><h2 class="q2-q">${r.list.length} из ${fmt(Math.max(n,r.list.length))} подходящих</h2>${r.widened.length?`<p class="q2-hint">Точных совпадений меньше трёх, поэтому расширили: ${r.widened.map(w=>QWN[w]).join(', ')}</p>`:''}`;
+  const T=qTotal(a),N=T.n,more=N-r.list.length;
+  head=`<p class="q2-of">${esc(sum)}</p><h2 class="q2-q">Лучшие из подходящих: ${r.list.length} из ${fmt(N)}</h2>`;
   body=`<div class="q2-picks">${r.list.map(p=>`<a class="q2-p" data-act="oopen" data-id="${p.id}"><img src="${IM[p.id]||OI[p.id].g[0]}" alt=""><span class="q2-p__b"><b>${p.name}</b><span>${[p.dist||p.city,p.country].filter(Boolean).join(' · ')}</span><span class="q2-p__p">${pxh(p.id,OB[p.id].v,'от ',{tag:'span',po:0})}</span><span>${p.st==='ready'?'Готов':p.due||''}</span></span></a>`).join('')}</div>
+<a class="q2-more" href="${lk.wa}" target="_blank" rel="noopener noreferrer"><span class="q2-more__t">${P.filter(x=>!r.list.includes(x)).slice(0,4).map(x=>`<img src="${IM[x.id]||OI[x.id].g[0]}" alt="">`).join('')}<i class="q2-more__l">${ic('lock',22)}</i></span><span class="q2-more__x"><b>Ещё ${fmt(more)} ${pl(more,'объект','объекта','объектов')} в подборке</b><span>Откроются в мессенджере</span></span></a>
+<p class="q2-lead"><b>Пришлём всю подборку: ${fmt(N)} ${pl(N,'объект','объекта','объектов')}.</b> С планировками, свободными квартирами и актуальными ценами. Ответ за несколько минут, бот Чарли получит ваши ответы и код консультанта ${AG()}.</p>
 <div class="q2-cta"><a class="btn btn--d btn--l" href="${lk.wa}" target="_blank" rel="noopener noreferrer">${ic('wa',18)}Получить полную подборку в WhatsApp</a><a class="btn btn--t btn--l" href="${lk.tg}" target="_blank" rel="noopener noreferrer">${ic('tg',18)}Получить в Telegram</a></div>
-<p class="q2-note">Полную подборку, не только эти три объекта, с планировками, свободными этажами и ценами пришлёт бот Чарли, он получит ваши ответы и код консультанта ${AG()}. <a data-act="kcat">Смотреть все в каталоге</a></p>`}
+<p class="q2-note"><a data-act="kcat">Смотреть выборку в каталоге</a></p>`}
  return`<div class="q2${fresh?' is-fresh':''}" data-cur="${i}"><div class="q2-side">${rail}${who}</div><div class="q2-step"><div class="q2-qh">${head}</div>${body}</div>
 <div class="q2-foot"><p class="q2-count" aria-live="polite">${fresh?'':`<b>${fmt(cur)}</b>`}<span><span class="q2-word">${fresh?'5 вопросов, около минуты':pl(cur,'подходит','подходят','подходят')}</span>${fresh?'':`<span class="q2-of2"> из ${fmt(total)}</span>`}</span></p>
 <span class="q2-meter" aria-hidden="true"><i style="transform:scaleX(${Math.min(1,cur/total)})"></i></span><div class="q2-nav">${i>0&&!done?`<button type="button" class="q2-b" data-act="kqb"><span class="q2-fl">${ic('arr',16)}</span>Назад</button>`:''}${done?`<button type="button" class="q2-b" data-act="kqb"><span class="q2-fl">${ic('arr',16)}</span>Назад</button><button type="button" class="q2-b" data-act="kqr">${ic('sliders',16)}Подобрать заново</button>`:`<button type="button" class="q2-b q2-skip" data-act="kqs">Пропустить${ic('arr',16)}</button>`}</div></div></div>`}
